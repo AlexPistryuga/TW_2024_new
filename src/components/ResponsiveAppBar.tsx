@@ -128,7 +128,7 @@ function ResponsiveAppBar() {
                                 {page}
                             </Button>
                         ))}
-                    git
+                    </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
