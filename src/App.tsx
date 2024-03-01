@@ -1,6 +1,7 @@
 import './App.css'
 import ResponsiveAppBar from "./components/ResponsiveAppBar.tsx";
 import SimplePaper from "./components/SimplePaper.tsx";
+import Paper from "./components/Paper.tsx";
 
 function App() {
 
@@ -8,8 +9,13 @@ function App() {
     <>
       <div>
 
-          <ResponsiveAppBar />
-          <SimplePaper />
+          <ResponsiveAppBar/>
+          <SimplePaper/>
+          <div className="logo">
+              Актеры
+          </div>
+          <Paper/>
+
 
       </div>
     </>
