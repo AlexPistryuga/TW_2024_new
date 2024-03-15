@@ -1,22 +1,18 @@
-import './App.css'
-import ResponsiveAppBar from "./components/ResponsiveAppBar.tsx";
-import SimplePaper from "./components/SimplePaper.tsx";
-import Paper from "./components/Paper.tsx";
-
+import Sidenav from "./layouts/Sidenav.tsx";
+import Main from "./layouts/Main.tsx";
+import MovieCard from "./components/MovieCard.tsx";
+import MovieCard2 from "./components/MovieCard2.tsx";
+import MovieCard3 from "./components/MovieCard3.tsx";
 function App() {
 
   return (
     <>
       <div>
-
-          <ResponsiveAppBar/>
-          <SimplePaper/>
-          <div className="logo">
-              Актеры
-          </div>
-          <Paper/>
-
-
+          <Sidenav/>
+          <Main/>
+          <MovieCard/>
+          <MovieCard2/>
+          <MovieCard3/>
       </div>
     </>
   )
