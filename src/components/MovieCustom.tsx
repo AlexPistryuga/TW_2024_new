@@ -1,32 +1,30 @@
+// MovieCustom.jsx
+import * as React from 'react';
 import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
-import { IUser } from "../layouts/Main.tsx";
 
-export default function MovieCustom(user: IUser) {
+export default function MovieCustom({ title, backdropPath }) {
     return (
-        <Card sx={{ maxWidth: 345, backgroundColor: 'rgb(244, 205, 137)' }}>
-            <CardActionArea>
-                <CardMedia
-                    component="img"
-                    height="400"
-                    image="/src/photo/avatar.jpeg"
-                />
-                <CardContent>
-                    <Typography gutterBottom variant="h6" component="div">
-                        {user.name}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {user.email}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
+        <Card sx={{ maxWidth: 345 }}>
+            <CardMedia
+                component="img"
+                alt={title}
+                height="140"
+                image={backdropPath ? `https://image.tmdb.org/t/p/w500/${backdropPath}` : ''}
+            />
+            <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                    {title}
+                </Typography>
+                {/* You can add more details here like overview, release date, etc. */}
+            </CardContent>
             <CardActions>
-                <Button size="small" color="primary">
-                    Share
-                </Button>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
             </CardActions>
         </Card>
     );
