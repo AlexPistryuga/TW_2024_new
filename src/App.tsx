@@ -3,6 +3,7 @@ import Main from "./layouts/Main.tsx";
 import MovieCard from "./components/MovieCard.tsx";
 import MovieCard2 from "./components/MovieCard2.tsx";
 import MovieCard3 from "./components/MovieCard3.tsx";
+import MovieAPI from "./components/MovieAPI.tsx";
 function App() {
 
   return (
@@ -10,9 +11,7 @@ function App() {
       <div>
           <Sidenav/>
           <Main/>
-          <MovieCard/>
-          <MovieCard2/>
-          <MovieCard3/>
+          <MovieAPI/>
       </div>
     </>
   )
