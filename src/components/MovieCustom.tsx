@@ -3,29 +3,23 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
-import {IUser} from "../layouts/Main.tsx";
+import { IUser } from "../layouts/Main.tsx";
 
-
-interface IUserProps extends IUser = {
-
-}
-export default function MovieCustom() {
+export default function MovieCustom(user: IUser) {
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345, backgroundColor: 'rgb(244, 205, 137)' }}>
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="140"
-                    image="/static/images/cards/contemplative-reptile.jpg"
-                    alt="green iguana"
+                    height="400"
+                    image="/src/photo/avatar.jpeg"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Lizard
+                    <Typography gutterBottom variant="h6" component="div">
+                        {user.name}
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
-                        Lizards are a widespread group of squamate reptiles, with over 6,000
-                        species, ranging across all continents except Antarctica
+                        {user.email}
                     </Typography>
                 </CardContent>
             </CardActionArea>
@@ -37,5 +31,3 @@ export default function MovieCustom() {
         </Card>
     );
 }
-
-

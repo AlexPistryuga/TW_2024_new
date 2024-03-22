@@ -26,7 +26,7 @@ const Sidenav = () => {
     };
 
     const style = {
-        position: 'absolute' as 'absolute',
+        position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
@@ -118,7 +118,7 @@ const Sidenav = () => {
                                 <Box sx={style}>
                                     <form style={{display: "flex", flexDirection: "column", gap: "10px"}}>
                                         <Input type="email"/>
-                                        <Input type="password" />
+                                        <Input type="password"/>
                                         <Button onClick={handleClose}>
                                             Login
                                         </Button>
@@ -127,10 +127,12 @@ const Sidenav = () => {
                             </Modal>
                         </div>
                     </a>
+                    <div className='md:block hidden fixed right-4 top-[36%] z-10'>
                     <a href="#fav"
                        className='rounded-full shadow-lg bg-gray-100 shadow-gray-400 m-2 p-4 cursor-pointer hover:scale-110 ease-in duration-300 '>
                         <FavoriteIcon size={20}/>
                     </a>
+                    </div>
                 </div>
             </div>
         </div>

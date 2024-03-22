@@ -1,25 +1,34 @@
 import React, { useEffect, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
+import MovieCustom from "../components/MovieCustom.tsx";
+
+    
 export interface IUser {
-    body: string;
-    id: number;
-    title: string;
-    userId: number;
+    id: number,
+    name: string,
+    username: string,
+    email: string,
 }
 
 const Main = () => {
+
+    const [users, setUsers] = useState<IUser[]>([]);
     const fetchMovies = () => {
-        fetch('https://jsonplaceholder.typicode.com/posts')
-            .then((res) => res.json())
-            .then((data) => console.log(data));
-    };
+            fetch('https://jsonplaceholder.typicode.com/users')
+                .then(response => response.json())
+                .then(json => setUsers(json))
+
+        };
+    
+
 
     useEffect(() => {
         fetchMovies();
     }, []);
 
     return (
+        <>
         <div id='main'>
             <img
                 className='w-full h-screen object-cover object-left'
@@ -56,6 +65,16 @@ const Main = () => {
                 </div>
             </div>
         </div>
+            <div className='flex gap-10' >
+            {
+                users.map((user) => (
+
+                        <MovieCustom {...user} />
+
+                ))
+            }
+            </div>
+        </>
     );
 };
 
