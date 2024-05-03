@@ -1,63 +1,42 @@
-import React from 'react';
-import InsertEmoticonIcon from '@mui/icons-material/InsertEmoticon';
-import MoodBadIcon from '@mui/icons-material/MoodBad';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-const MovieCard: React.FC = () => {
+interface  Props {
+    title: string
+    backdropPath: string
+    overview: string
+}
+
+export default function MovieCustom({ title, overview}: Props) {
     return (
-        <React.Fragment>
-            <div className="container">
-                <div className="cellphone-container">
-                    <div className="movie">
-                        <div className="menu"><InsertEmoticonIcon/></div>
-                        <div className="movie-img"></div>
-                        <div className="text-movie-cont">
-                            <div className="mr-grid">
-                                <div className="col1">
-                                    <h1>Pulp Fiction</h1>
-                                    <ul className="movie-gen">
-                                        <li>R /</li>
-                                        <li>2h 34m /</li>
-                                        <li>Crime, Drama, </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="mr-grid summary-row">
-                                <div className="col2">
-                                    <h5>SUMMARY</h5>
-                                </div>
-                                <div className="col2">
-                                    <ul className="movie-likes">
-                                        <li><InsertEmoticonIcon/>124</li>
-                                        <li><MoodBadIcon/> 3</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="mr-grid">
-                                <div className="col1">
-                                    <p className="movie-description">The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in
-                                        four tales of violence and redemption. </p>
-                                </div>
-                            </div>
-                            <div className="mr-grid actors-row">
-                                <div className="col1">
-                                    <p className="movie-actors">John Travolta, Uma Thurman, Samuel L. Jackson</p>
-                                </div>
-                            </div>
-                            <div className="mr-grid action-row">
-                                <div className="col2">
-                                    <div className="watch-btn"><h4><PlayArrowIcon/>WATCH
-                                        TRAILER</h4></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </React.Fragment>
-)
-    ;
-};
-
-export default MovieCard;
+        <Card sx={{ maxWidth: 900 }}>
+            <CardMedia
+                component="img"
+                alt={title}
+                height="140"
+                image={'dune.jpg'}
+            />
+            <img src="dune.jpg" alt="asdadasdasdasdas"/>
+            <CardContent>
+                <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                >
+                    {title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {overview}
+                </Typography>
+            </CardContent>
+            <CardActions>
+                <Button size="small">Share</Button>
+                <Button size="small">Learn More</Button>
+            </CardActions>
+        </Card>
+    );
+}

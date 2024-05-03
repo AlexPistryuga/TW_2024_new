@@ -1,30 +1,32 @@
-// MovieApi.jsx
-import React, { useEffect, useState } from 'react';
-import MovieCustom from '../components/MovieCustom.tsx';
+// MovieApi.tsx
+import { useEffect, useState } from 'react';
+import MovieCustom from '../components/MovieCustom';
 
-type TMovie = {
-    id: number;
-    title: string;
-    poster_path: string;
-    backdrop_path: string;
-    overview: string;
-    release_date: string;
-    vote_average: number;
-    vote_count: number;
-    runtime: number;
-    genres: string[];
-    production_countries: string[];
-    production_companies: string[];
-    spoken_languages: string[];
-};
+export interface TMovie {
+    id: string,
+    title: string,
+    backdropPath: string,
+    overview: string,
+    slogan: string,
+    director: string
+}
+
+export const initialMovie: TMovie = {
+    id: '',
+    title: '',
+    backdropPath: '',
+    overview: '',
+    slogan: '',
+    director: ''
+}
 
 function MovieApi() {
     const [movieList, setMovieList] = useState<TMovie[]>([]);
 
     const getMovieApi = () => {
-        fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a0c06e50f9219fec7dd308b2a0038c66`)
+        fetch(`http://localhost:5000/posters`)
             .then((res) => res.json())
-            .then((json) => setMovieList(json.results))
+            .then((json) => setMovieList(json))
             .catch((error) => console.error('Error fetching movies:', error));
     };
 
@@ -33,12 +35,16 @@ function MovieApi() {
     }, []);
 
     return (
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10}}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 10, background: 'SaddleBrown', paddingTop:'60px'}}>
             {movieList.map((movie, index) => (
                 <MovieCustom
                     key={index}
+                    id={movie.id}
+                    slogan={movie.slogan}
                     title={movie.title}
-                    backdropPath={movie.backdrop_path}
+                    backdropPath={movie.backdropPath}
+                    overview={movie.overview}
+                    director={movie.director}
                 />
             ))}
         </div>

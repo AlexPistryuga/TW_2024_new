@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react';
 import { TypeAnimation } from 'react-type-animation';
 import { FaInstagram, FaFacebook, FaTwitter } from 'react-icons/fa';
-import MovieCustom from "../components/MovieCustom.tsx";
-
-    
 export interface IUser {
     id: number,
     name: string,
@@ -15,14 +12,11 @@ const Main = () => {
 
     const [users, setUsers] = useState<IUser[]>([]);
     const fetchMovies = () => {
-            fetch('https://jsonplaceholder.typicode.com/users')
-                .then(response => response.json())
-                .then(json => setUsers(json))
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(json => setUsers(json))
 
-        };
-
-
-
+    };
     useEffect(() => {
         fetchMovies();
     }, []);
